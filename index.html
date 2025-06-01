@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" />
+      
+     <style>
+
+
+     body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+        .navbar {
+            background-color: #ffffff;
+            box-shadow: 0 2px 4px rgba(0,0,0,.05);
+            border-radius: 0 0 10px 10px;
+        }
+        .navbar-brand {
+            font-weight: 700;
+            color: #28a745 !important;
+            border-radius: 5px;
+        }
+        .nav-link {
+            font-weight: 500;
+            color: #555 !important;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .nav-link:hover {
+            background-color: #e9ecef;
+        }
+        .hero-section {
+            background-image: url("./img/drought.png"); /* Placeholder image */
+            background-size: cover;
+            background-position: center;
+            color: #ffffff;
+            text-align: center;
+            padding: 100px 20px;
+            border-radius: 15px;
+            margin-top: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-overlay {
+            background-color: rgba(0, 0, 0, 0.5);
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 15px;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+        .hero-section h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        .hero-section p {
+            font-size: 1.25rem;
+            margin-bottom: 30px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+        }
+        .hero-section .btn {
+            background-color: #28a745;
+            border-color: #28a745;
+            color: #fff;
+            padding: 12px 30px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 50px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+        .hero-section .btn:hover {
+            background-color: #218838;
+            transform: translateY(-2px);
+        }
+        .section-padding {
+            padding: 60px 0;
+        }
+        .card {
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,.05);
+            margin-bottom: 30px;
+        }
+        .card-header {
+            background-color: #f0f2f5;
+            border-bottom: 1px solid #e0e2e5;
+            font-weight: 600;
+            border-radius: 10px 10px 0 0;
+            padding: 15px 20px;
+        }
+        .text-highlight {
+            color: #28a745;
+            font-weight: 600;
+        }
+        .image-container {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,.1);
+            margin-bottom: 30px;
+        }
+        .image-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .progress-circle {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: conic-gradient(#28a745 24%, #e0e0e0 0%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            margin: 0 auto 20px;
+        }
+        .progress-circle::before {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: #fff;
+        }
+        .progress-circle span {
+            position: relative;
+            z-index: 1;
+            font-size: 2rem;
+            font-weight: 700;
+            color: #28a745;
+        }
+        .table th, .table td {
+            vertical-align: middle;
+            padding: 12px;
+            border-radius: 8px;
+        }
+        .table thead th {
+            background-color: #e9ecef;
+            font-weight: 600;
+            color: #495057;
+        }
+        .table tbody tr:hover {
+            background-color: #f2f2f2;
+        }
+        .badge-high {
+            background-color: #dc3545; /* Red */
+            color: white;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+        .badge-medium {
+            background-color: #ffc107; /* Yellow */
+            color: #333;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+        .badge-low {
+            background-color: #17a2b8; /* Cyan */
+            color: white;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+        
+
+    .topnav {
+    overflow: hidden;
+    background-color: white;
+    }
+    
+    .topnav a {
+    float: left;
+    color: #000000;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    }
+    .grad {
+        background-image: linear-gradient(to right, #42B3AA , #99C259);
+        /* height: 250px; */
+        text-align: center;
+    }
+
+    .topnav a:hover {
+    background-color: #6cd09b;
+    color: black;
+    }
+
+    .topnav a.active {
+    background-color: #58CF90;
+    color: white;
+    }
+    
+ 
+    
+    </style>
+    <title>Impact</title>
+</head>
+<body>
+
+    
+     <header class="d-flex bg-light align-items-center justify-content-between">
+       <div class="d-flex align-items-center text-white">
+           
+           <div class="d-flex align-items-center text-white">
+               <img src="./img/logo.png" alt="logo" width="70" height="70">
+           </div> 
+           <div>
+           </div>
+           <h2 class="h5 fw-bold mb-0 text-black">Climate Change: Impacts, Vulnerability & Adaptation</h2>
+
+       </div>
+       <div class="d-flex flex-grow-1 justify-content-end ">
+          <div class="topnav">
+           
+            <a class="active" href="./">Impact</a>
+            <a  href="./currSolution.html">Adaptive strategies</a>
+            
+          </div>
+        
+        </div>
+          
+      </header>
+
+      <!-- <div class="p-3 mb-2 text-white bg-opacity-10 align-items-center">
+        <div class="">
+          <img src="/PC414/img/image.png" alt="Climate Change Banner" width="100%" height="380px">
+             
+            <div class="text-block position-absolute top-50 start-50 translate-middle">
+                <h2 class="mb-0">Headline</h2>
+                <p class="mb-0">Some text</p>
+            </div>
+        </div>
+      </div> -->
+
+     <section class="hero-section">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>Impact of Climate Change on Agriculture</h1>
+            <p>Explore the intricate relationship between climate change and agriculture</p>
+            <a href="#effects" class="btn btn-primary">See Effects</a>
+        </div>
+    </section>
+
+    <main class="container mt-5">
+
+       
+
+        <section id="overview" class="section-padding">
+            <div class="card">
+                <div class="card-body">
+                    <h2 class="card-title text-center mb-4">Overview</h2>
+                    <p class="card-text">Climate change is a big, lasting shift in our planet's weather patterns, making things hotter and rainfall unpredictable. This is mainly because humans release too many heat-trapping gases. For Fiji's farmers, this means struggles with crops due to more droughts, too much rain, or new pests, making it harder to grow enough food.</p>
+                </div>
+            </div>
+        </section>
+
+    
+
+       <section id="causes" class="section-padding pt-0">
+    <div class="card">
+        <div class="card-body">
+            <h2 class="card-title text-center mb-4">Causes of Climate Change</h2>
+            <p class="card-text mb-4">Climate change is happening because of human actions like cutting down forests, burning oil and coal for power and travel, and certain farming practices, all of which release too many heat-trapping gases into our air.</p>
+            <div class="col-md-9 mx-auto"> <div class="row text-center justify-content-center"> <div class="col-md-4">
+                        <h3>Deforestation</h3>
+                        <img src="./img/deforestation.png" alt="deforestation" width="200px" height="200px">
+                        <p>When deforestation occurs majority of carbon stored by trees is released back into the atmosphere as carbon dioxide, which contributes to Climate Changes</p>
+                    </div>
+                    <div class="col-md-4">
+                        <h3>Burning Fossil Fuel</h3>
+                        <img src="./img/BURNIG.png" alt="Burning" width="200px" height="200px">
+                        <p>When we burn fossil fuels like, they release gases that act like a blanket around the Earth, trapping heat from the sun. Because of this extra heat, the Earth is getting warmer and weather patterns are changing.</p>
+                    </div>
+                    <div class="col-md-4">
+                        <h3>Transportation</h3>
+                        <img src="./img/trans.png" alt="Burning" width="200px" height="200px">
+                        <p>Transportation in Fiji, like cars, buses, and boats, largely runs on fuel from oil. Burning this fuel releases a lot of carbon dioxide, adding heat-trapping gases to our air and changing our climate.</p>
+                    </div>
+                    <div class="col-md-4">
+                        <h3>Agriculture</h3>
+                        <img src="./img/agri.png" alt="Burning" width="200px" height="200px">
+                        <p>Agriculture in Fiji contributes to climate change mainly through practices like clearing land for new farms, which releases carbon from cut trees and disturbed soil. Also, livestock like cattle produce methane gas, and certain fertilizers release nitrous oxide, both adding to the heat-trapping gases in our atmosphere</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+        <section id="effects" class="section-padding pt-0">
+            <div class="card">
+                <div class="card-body">
+                    <h2 class="card-title text-center mb-4">Effects on Crops</h2>
+                    <p class="card-text mb-4"> Climate change is now making our beloved Fiji's soil and sky unpredictable, meaning our traditional root crops like dalo and cassava face new struggles from heat, floods, or pests, threatening the food on our tables and our way of life. </p>
+                    <div class="col-md-9">
+                            <div class="row  justify-content-between ">
+                                <div class="d-flex align-items-center">
+           
+                                <div class="d-flex align-items-center text-white">
+                                    <img src="./img/effort1.png" alt="deforestation" width="200px" height="200px">
+                                </div> 
+                                <div>
+                                </div>
+                                
+                                <div class="p-3">
+                                    
+                                    <h3>Drought</h3>
+                                    <p>Climate change makes droughts worse because a hotter Earth causes more water to evaporate from the land and sea, and it changes where and when the rain falls. For farmers in Fiji, this means the ground gets very dry, and crops like sugarcane or root crops don't get enough water to grow well, leading to smaller harvests or even crop failure</p>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                    
+                </div>
+            </div>
+        </section>
+
+
+        <section id="effects" class="section-padding pt-0">
+            <div class="card">
+                <div class="card-body">
+                    
+                    
+                    <div class="col-md-9">
+                            <div class="row  justify-content-between">
+                                <div class="d-flex align-items-center">
+           
+                                <div class="d-flex align-items-center text-white">
+                                    <img src="./img/pest.png" alt="deforestation" width="200px" height="200px">
+                                </div> 
+                                <div>
+                                </div>
+                                
+                                <div class="p-3">
+                                    
+                                    <h3>Pest & Diseses</h3>
+                                    <p>Increase in pests and diseases Climate change causes more pests and diseases because warmer temperatures and changing rain patterns help bugs and sicknesses survive better and spread faster. In Fiji, this means new or more damaging pests can attack crops like taro or cassava, weakening the plants and making it harder for farmers to get a good harvest. </p>
+                                </div>
+                            </div>
+                        </div>
+                    
+                </div>
+            </div>
+        </section>
+        
+         <section id="effects" class="section-padding pt-0">
+            <div class="card">
+                <div class="card-body">
+                    
+                    
+                    <div class="col-md-9">
+                            <div class="row  justify-content-between">
+                                <div class="d-flex align-items-center">
+           
+                                <div class="d-flex align-items-center text-white">
+                                    <img src="./img/yeild.png" alt="deforestation" width="200px" height="200px">
+                                </div> 
+                                <div>
+                                </div>
+                                
+                                <div class="p-3">
+                                    
+                                    <h3>Crop Yeild</h3>
+                                    <p>Climate change directly causes reduced crop yields because extreme heat, longer droughts, too much rain (floods), and new pests all stress the plants. In Fiji, this means crops like dalo or vegetables don't grow as big or healthy, so farmers end up with less to sell and less food for their families. </p>
+                                </div>
+                            </div>
+                        </div>
+                    
+                </div>
+            </div>
+        </section>
+
+         <section id="effects" class="section-padding pt-0">
+            <div class="card">
+                <div class="card-body">
+                    
+                    
+                    <div class="col-md-9">
+                            <div class="row  justify-content-between">
+                                <div class="d-flex align-items-center">
+           
+                                <div class="d-flex align-items-center text-white">
+                                    <img src="./img/food.png" alt="deforestation" width="200px" height="200px">
+                                </div> 
+                                <div>
+                                </div>
+                                
+                                <div class="p-3">
+                                    
+                                    <h3>Food insecurity & Economic losses</h3>
+                                    <p>
+  When climate change makes our weather wilder – with more droughts, floods, and pests – our farms produce less food. For Fiji, this means food insecurity because there isn't enough taro, cassava, or vegetables to go around, or prices go up so people can't afford it. This then leads to economic losses as farmers earn less, and the country loses money from reduced exports and damaged lands.  </p>
+                                </div>
+                            </div>
+                        </div>
+                    
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+
+
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
